@@ -1,0 +1,137 @@
+
+body {
+    font-family: Arial;
+    background: #eaf2f8;
+    text-align: center;
+    margin: 0;
+}
+
+h1 {
+    background: navy;
+    color: white;
+    padding: 20px;
+}
+
+h2 { color: navy; }
+
+.slots {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.available, .booked {
+    color: white;
+    padding: 20px;
+    width: 100px;
+    border-radius: 10px;
+}
+
+.available { background: green; }
+.booked { background: red; }
+
+form, .booking {
+    background: white;
+    width: 300px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+input, select {
+    width: 90%;
+    padding: 10px;
+    margin: 10px;
+}
+
+button {
+    background: green;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.cancel { background: red; }
+.message { color: red; font-weight: bold; }
+
+/* 
+body {
+    font-family: Arial;
+    background-color: #eaf2f8;
+    text-align: center;
+    margin: 0;
+}
+
+h1 {
+    background-color: navy;
+    color: white;
+    padding: 20px;
+}
+
+h2 {
+    color: navy;
+}
+
+.slots {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.available {
+    background-color: green;
+    color: white;
+    padding: 20px;
+    width: 100px;
+    border-radius: 10px;
+}
+
+.booked {
+    background-color: red;
+    color: white;
+    padding: 20px;
+    width: 100px;
+    border-radius: 10px;
+}
+
+form {
+    background-color: white;
+    width: 300px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+input, select {
+    width: 90%;
+    padding: 10px;
+    margin: 10px;
+}
+
+button {
+    background-color: green;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.booking {
+    background-color: white;
+    width: 300px;
+    margin: 15px auto;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.cancel {
+    background-color: red;
+}
+
+.message {
+    color: red;
+    font-weight: bold;
+} */

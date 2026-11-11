@@ -1,0 +1,205 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Parking Slot Booking</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<h1>Parking Slot Booking System</h1>
+
+<h2>Available Parking Slots</h2>
+<div class="slots">
+    <% slots.forEach(slot => {
+        let booked = bookings.some(b => b.slot === slot); %>
+        <div class="<%= booked ? 'booked' : 'available' %>">
+            <%= slot %>
+            <p><%= booked ? 'Booked' : 'Available' %></p>
+        </div>
+    <% }) %>
+</div>
+
+<h2>Book Your Parking Slot</h2>
+<form action="/book" method="POST">
+    <input name="name" placeholder="Enter your name" required>
+    <input name="vehicle" placeholder="Vehicle Number" required>
+
+    <select name="slot" required>
+        <option value="">Select Slot</option>
+        <% slots.forEach(slot => {
+            if (!bookings.some(b => b.slot === slot)) { %>
+                <option value="<%= slot %>"><%= slot %></option>
+        <% } }) %>
+    </select>
+
+    <input type="date" name="date" required>
+    <button>Book Now</button>
+</form>
+
+<h2>Booking Details</h2>
+<p class="message"><%= message %></p>
+
+<% if (!bookings.length) { %>
+    <p>No Bookings Available</p>
+<% } %>
+
+<% bookings.forEach(b => { %>
+    <div class="booking">
+        <h3><%= b.name %></h3>
+        <p>Vehicle: <%= b.vehicle %></p>
+        <p>Slot: <%= b.slot %></p>
+        <p>Date: <%= b.date %></p>
+        <form action="/cancel/<%= b.id %>" method="POST">
+            <button class="cancel">Cancel Booking</button>
+        </form>
+    </div>
+<% }) %>
+
+</body>
+</html>
+
+<!-- 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Parking Slot Booking</title>
+
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+    <h1>Parking Slot Booking System</h1>
+
+    <h2>Available Parking Slots</h2>
+
+    <div class="slots">
+
+        <% slots.forEach(function(slot) { %>
+
+            <% let booked = bookings.some(
+                b => b.slot === slot
+            ); %>
+
+            <div class="<%= booked ? 'booked' : 'available' %>">
+                <%= slot %>
+
+                <p>
+                    <%= booked ? 'Booked' : 'Available' %>
+                </p>
+            </div>
+
+        <% }); %>
+
+    </div>
+
+    <h2>Book Your Parking Slot</h2>
+
+    <form action="/book" method="POST">
+
+        <label>Name:</label>
+
+        <input
+            type="text"
+            name="name"
+            placeholder="Enter your name"
+            required
+        >
+
+        <label>Vehicle Number:</label>
+
+        <input
+            type="text"
+            name="vehicle"
+            placeholder="Enter vehicle number"
+            required
+        >
+
+        <label>Select Parking Slot:</label>
+
+        <select name="slot" required>
+
+            <option value="">Select Slot</option>
+
+            <% slots.forEach(function(slot) { %>
+
+                <% let booked = bookings.some(
+                    b => b.slot === slot
+                ); %>
+
+                <% if (!booked) { %>
+
+                    <option value="<%= slot %>">
+                        <%= slot %>
+                    </option>
+
+                <% } %>
+
+            <% }); %>
+
+        </select>
+
+        <label>Date:</label>
+
+        <input
+            type="date"
+            name="date"
+            required
+        >
+
+        <button type="submit">
+            Book Now
+        </button>
+
+    </form>
+
+    <h2>Booking Details</h2>
+
+    <% if (message) { %>
+
+        <p class="message"><%= message %></p>
+
+    <% } %>
+
+    <% if (bookings.length === 0) { %>
+
+        <p>No Bookings Available</p>
+
+    <% } %>
+
+    <% bookings.forEach(function(booking) { %>
+
+        <div class="booking">
+
+            <h3><%= booking.name %></h3>
+
+            <p>
+                Vehicle: <%= booking.vehicle %>
+            </p>
+
+            <p>
+                Slot: <%= booking.slot %>
+            </p>
+
+            <p>
+                Date: <%= booking.date %>
+            </p>
+
+            <form
+                action="/cancel/<%= booking.id %>"
+                method="POST"
+            >
+
+                <button type="submit" class="cancel">
+                    Cancel Booking
+                </button>
+
+            </form>
+
+        </div>
+
+    <% }); %>
+
+</body>
+</html> -->
